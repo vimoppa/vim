@@ -1,16 +1,19 @@
+local filetype = require("mason-lspconfig.mappings.filetype")
 -- custom plugin
 return {
   -- auto-save configuration
   { "pocco81/auto-save.nvim", lazy = false, enabled = true },
 
-  -- add vscode theme
-  { "Mofiqul/vscode.nvim" },
+  -- add vscode / github theme
+  -- { "Mofiqul/vscode.nvim", lazy = false, enabled = true },
+  { "martinsione/darkplus.nvim", lazy = false, enabled = true },
+  -- { "projekt0n/github-nvim-theme", lazy = false, enabled = true },
 
   -- Configure LazyVim to load vscode theme
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "vscode",
+      colorscheme = "darkplus",
     },
   },
 
@@ -21,6 +24,41 @@ return {
       opts.options.theme = "auto"
     end,
   },
+
+  -- add graphql support
+  { "jparise/vim-graphql", lazy = false, enabled = true },
+
+  -- add markdown preview
+  {
+    "iamcco/markdown-preview.nvim",
+    -- cmd = "MarkdownPreviewToggle",
+
+    -- init = function()
+    --   require("lazyvim.util").on_attach(function(_, buffer)
+    --       -- stylua: ignore
+    --     vim.keymap.set( "n", "<leader>ckpp", ":call MarkdownPreview", { buffer = buffer, desc = "Markdown Preview Toggle" })
+    --     vim.keymap.set( "n", "<leader>ckps", ":call MarkdownPreviewStop", { buffer = buffer, desc = "Markdown Preview Toggle" })
+    --     -- vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { desc = "Rename File", buffer = buffer })
+    --   end)
+    -- end,
+
+    -- keys = {
+    --   {
+    --     "<leader>ckp",
+    --     function()
+    --       vim.cmd([[ :call MarkdownPreviewToggle() ]])
+    --     end,
+    --     desc = "Markdown Preview Toggle",
+    --   },
+    -- },
+
+    config = function()
+      vim.cmd([[ :call mkdp#util#install() ]])
+    end,
+  },
+
+  -- add rust language support
+  { import = "lazyvim.plugins.extras.lang.rust" },
 
   --  add typscript support, lazyvim extended package
   { import = "lazyvim.plugins.extras.lang.typescript" },
@@ -65,10 +103,13 @@ return {
 
         "terraform",
         "json",
+        "toml",
+        "ron",
         "yaml",
         "markdown",
         "markdown_inline",
         "hcl",
+        -- "graphql",
       })
     end,
   },
@@ -77,12 +118,15 @@ return {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = {
+      -- Automatically format on save
+      autoFormat = false,
       ---@type lspconfig.options
       servers = {
         html = {},
         cssls = {},
         bashls = {},
         yamlls = {},
+        taplo = {},
         tailwindcss = {},
         terraformls = {},
         graphql = {},
