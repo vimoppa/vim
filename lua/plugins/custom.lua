@@ -63,14 +63,23 @@ return {
   --  add typscript support, lazyvim extended package
   { import = "lazyvim.plugins.extras.lang.typescript" },
 
+  -- add python support, lazyvim extended package
+  { import = "lazyvim.plugins.extras.lang.python" },
+
   -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
   { import = "lazyvim.plugins.extras.lang.json" },
+
+  -- add yaml extended package
+  { import = "lazyvim.plugins.extras.lang.yaml" },
 
   -- add prettier configuration
   { import = "lazyvim.plugins.extras.formatting.prettier" },
 
   -- add move-language support
   { "modocache/move.vim", lazy = false, enabled = true },
+
+  -- add aws-sam lint support using cfn-lint
+  { "speshak/vim-cfn", lazy = false, enabled = true },
 
   {
     "nvim-treesitter/nvim-treesitter",
@@ -125,11 +134,12 @@ return {
         html = {},
         cssls = {},
         bashls = {},
-        yamlls = {},
+        -- yamlls = {},
         taplo = {},
         tailwindcss = {},
         terraformls = {},
         graphql = {},
+        cfn_lint = {},
         -- sqlls = {},
         pylsp = {},
         gopls = {},
@@ -137,6 +147,8 @@ return {
         move_analyzer = {},
         solidity_ls = {},
         -- tsserver = {},
+        marksman = {},
+        -- zk = {},
       },
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig

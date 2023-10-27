@@ -52,6 +52,8 @@
   "tokyonight.nvim": { "branch": "main", "commit": "1ee11019f8a81dac989ae1db1a013e3d582e2033" },
   "trouble.nvim": { "branch": "main", "commit": "40aad004f53ae1d1ba91bcc5c29d59f07c5f01d3" },
   "typescript.nvim": { "branch": "main", "commit": "4de85ef699d7e6010528dcfbddc2ed4c2c421467" },
+  "venv-selector.nvim": { "branch": "main", "commit": "ff3342d4ae8723fab38fed8969b0a1e2c8b6281a" },
+  "vim-cfn": { "branch": "master", "commit": "3300b3284c9b5a56f6c76de415d15c21b83d1168" },
   "vim-graphql": { "branch": "master", "commit": "996749a7d69a3709768fa8c4d259f79b5fd9bdb1" },
   "vim-illuminate": { "branch": "master", "commit": "5ed17582a8e97bf0a0c617c3cf762e98f87b9859" },
   "vim-startuptime": { "branch": "master", "commit": "454b3de856b7bd298700de33d79774ca9b9e3875" },
