@@ -81,6 +81,21 @@ return {
   -- add aws-sam lint support using cfn-lint
   { "speshak/vim-cfn", lazy = false, enabled = true },
 
+  -- add copilot support
+  -- { "github/copilot.vim", lazy = false, enabled = true },
+
+  { import = "lazyvim.plugins.extras.lang.terraform" },
+
+  {
+    "sourcegraph/sg.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim", --[[ "nvim-telescope/telescope.nvim ]]
+    },
+
+    -- If you have a recent version of lazy.nvim, you don't need to add this!
+    build = "nvim -l build/init.lua",
+  },
+
   {
     "nvim-treesitter/nvim-treesitter",
     config = function()
